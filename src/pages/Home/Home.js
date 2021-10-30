@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Api } from "../../Api/Api";
 import { CharacterList } from "../../components/CharacterList/CharacterList";
 import { Pagination } from "../../components/Pagination/Pagination";
+import './Home.css';
 
 function Home() {
     const[characters, setCharacters] = useState([]);

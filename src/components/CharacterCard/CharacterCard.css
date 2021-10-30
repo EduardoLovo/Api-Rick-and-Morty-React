@@ -1,0 +1,29 @@
+.card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 2em;
+    color: white
+    
+}
+
+.card img {
+    margin-top: 1em;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        width: 120px;
+        height: 250px;
+    }
+    .card img {
+        margin-top: 1em;
+        border-radius: 20px;
+        width: 80px;
+    }
+    
+}

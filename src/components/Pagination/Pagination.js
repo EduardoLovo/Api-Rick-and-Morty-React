@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pagination.css'
 
 export const Pagination = ({ prev, next, onPrevious, onNext, num}) => {
     
@@ -11,7 +12,7 @@ export const Pagination = ({ prev, next, onPrevious, onNext, num}) => {
     };
     
     return (
-        <div className="teste">
+        <div className="pagination">
             <ul >
             {prev ? (
                 <li >
