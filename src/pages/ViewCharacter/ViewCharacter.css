@@ -1,0 +1,29 @@
+button {
+    width: 7em;
+    height: 5em;
+    border-radius: 10px;
+    background: #232323;
+    color: white;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    box-shadow: 5px 5px 29px rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+button:hover {
+    top:-2px;box-shadow:0 5px 5px rgb(0, 0, 0)
+}
+
+.view h2 {
+    font-size: 3rem;
+    margin-top: 2em;
+}
+
+.view img {
+    border-radius: 10px;    
+    box-shadow: 12px 12px 39px rgb(0, 0, 0);
+}
+
+.view {
+    overflow: hidden;
+}
