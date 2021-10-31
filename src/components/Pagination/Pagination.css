@@ -1,7 +1,5 @@
 .pagination {
     width: 100%;
-
-    
 }
 
 .pagination ul {
@@ -10,8 +8,6 @@
     text-align: center;
     padding-bottom: 4em;
     margin-right: 2em;
-
-
 }
 
 .pagination ul li {
@@ -27,9 +23,11 @@
     color: white;
     margin: 1em;
     margin-top: 1em;
-    box-shadow: 5px 5px 29px rgb(0, 0, 0);
-
-    
+    box-shadow: 5px 5px 29px rgb(0, 0, 0); 
+    cursor: pointer;
+}
+.pagination ul li button:hover {
+    top:-2px;box-shadow:0 5px 5px rgb(0, 0, 0)
 }
 
 @media only screen and (max-width: 768px) {
