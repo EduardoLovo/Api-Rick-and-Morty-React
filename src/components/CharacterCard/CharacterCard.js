@@ -9,7 +9,7 @@ export default function CharacterCard( props ) {
     const history = useHistory();
 
     const handleClick = () => {
-        history.push(`/view/${characters.id}`);
+        history.push(`/viewCharacter/${characters.id}`);
     };
 
 
