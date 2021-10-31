@@ -17,7 +17,6 @@ export default function ViewCharacter(props) {
             const results = await response.json();
             
             setCharacter(results);
-            console.log(setCharacter);
         };
         
         loadCharacterList();
@@ -33,10 +32,10 @@ export default function ViewCharacter(props) {
 
     //==============================================
 
-    var epi = character.episode;
+    // var epi = character.episode;
 
-    for (var prop in epi)
-        console.log("i." + prop + "=" + epi[prop]);
+    // for (var prop in epi)
+    //     console.log("i." + prop + "=" + epi[prop]);
         
     //==============================================
 
@@ -48,7 +47,7 @@ export default function ViewCharacter(props) {
                 <img src={character.image} alt="personagem"/>
                 <h2>Episodes:</h2><br/>
                 <div className="divEpi">
-                    <p className="listEpisodes">{epi}</p><br/>
+                    <p className="listEpisodes">{character.episode}</p><br/>
                 </div>
             </div>
             <button onClick={handleClick}>
