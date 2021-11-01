@@ -32,38 +32,30 @@ export default function ViewCharacter(props) {
     
     // Nome dos episodios
     const [episode, setEpisode] = useState([]);
-
     const idEpisode = character.episode;
-    
+  
     const list = []
     
     for (var prop in idEpisode)
         list.push(idEpisode[prop].substr(40));
-    
-    const urlEpi = "https://rickandmortyapi.com/api/episode/" + list
 
+        const urlEpi = "https://rickandmortyapi.com/api/episode/" + list;
+
+    useEffect(() => {
+
+        fetch(urlEpi)
+            .then((resp) => resp.json())
+            .then(function(data) {
+                console.log(data);
+                setEpisode(data);
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+
+        
+    }, []);
     
-    fetch(urlEpi)
-        .then((resp) => resp.json())
-        .then(function(data) {
-            setEpisode(data);
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-            
-        useEffect(() => {
-            const loadEpisodeList = async () => {
-                const response = await Api.buildApiGetRequest(Api.EpisodesUrl());
-    
-                const results = await response.json();
-                
-                setEpisode(results);
-            };
-            
-            loadEpisodeList();
-        }, []);
-            
 
     //===============================================
 
