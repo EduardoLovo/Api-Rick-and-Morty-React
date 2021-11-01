@@ -12,6 +12,7 @@ function Home() {
     // metodo para mostrar proxima lista de personagens
     const fetchCharacters = (url) => {
         fetch(url)
+            
             .then((response) => response.json())
             .then((data) => {
                 setCharacters(data.results);

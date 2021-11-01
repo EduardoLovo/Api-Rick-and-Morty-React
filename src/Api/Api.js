@@ -5,6 +5,8 @@ export const Api = {
     readAllUrl: () => Api.baseUrl + "/character" ,
        
     readByIdUrl: id => Api.baseUrl + "/character/" + id,
+
+    EpisodesUrl: id => Api.baseUrl + "/episode/" + id,
     
     
     //GET

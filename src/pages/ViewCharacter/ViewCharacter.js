@@ -7,8 +7,6 @@ export default function ViewCharacter(props) {
     const id = props.match.params.id;
 
     const [character, setCharacter] = useState([]);
-    
-
 
     useEffect(() => {
         const loadCharacterList = async () => {
@@ -22,7 +20,6 @@ export default function ViewCharacter(props) {
         loadCharacterList();
     }, [id]);
 
-
     const history = useHistory();
 
     const handleClick = () => {
@@ -30,24 +27,57 @@ export default function ViewCharacter(props) {
     };
 
 
-    //==============================================
+    
+    //================================================
+    
+    // Nome dos episodios
+    const [episode, setEpisode] = useState([]);
 
-    // var epi = character.episode;
-
-    // for (var prop in epi)
-    //     console.log("i." + prop + "=" + epi[prop]);
-        
-    //==============================================
+    const idEpisode = character.episode;
+    
+    const list = []
+    
+    for (var prop in idEpisode)
+        list.push(idEpisode[prop].substr(40));
+    
+    const urlEpi = "https://rickandmortyapi.com/api/episode/" + list
 
     
+    fetch(urlEpi)
+        .then((resp) => resp.json())
+        .then(function(data) {
+            setEpisode(data);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+            
+        useEffect(() => {
+            const loadEpisodeList = async () => {
+                const response = await Api.buildApiGetRequest(Api.EpisodesUrl());
+    
+                const results = await response.json();
+                
+                setEpisode(results);
+            };
+            
+            loadEpisodeList();
+        }, []);
+            
+
+    //===============================================
+
+
+
     return (
         <div>
             <div className="view">
                 <h2>{character.name}</h2>
                 <img src={character.image} alt="personagem"/>
-                <h2>Episodes:</h2><br/>
+                <h2>Epsiodes:</h2><br/>
                 <div className="divEpi">
-                    <p className="listEpisodes">{character.episode}</p><br/>
+                    <p className="listEpisodes" >{episode.name}</p><br/>
+                    
                 </div>
             </div>
             <button onClick={handleClick}>
