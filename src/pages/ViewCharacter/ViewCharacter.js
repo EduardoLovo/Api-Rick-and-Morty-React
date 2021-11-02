@@ -36,13 +36,12 @@ export default function ViewCharacter(props) {
   
     const list = []
     
-    for (var prop in idEpisode)
+    for (var prop in idEpisode) {
         list.push(idEpisode[prop].substr(40));
-
-        const urlEpi = "https://rickandmortyapi.com/api/episode/" + list;
+    }
 
     useEffect(() => {
-
+        const urlEpi = "https://rickandmortyapi.com/api/episode/" + list;
         fetch(urlEpi)
             .then((resp) => resp.json())
             .then(function(data) {
@@ -52,9 +51,7 @@ export default function ViewCharacter(props) {
             .catch(function(error) {
                 console.log(error);
             });
-
-        
-    }, []);
+    }, [list.length]);
     
 
     //===============================================
@@ -68,8 +65,9 @@ export default function ViewCharacter(props) {
                 <img src={character.image} alt="personagem"/>
                 <h2>Epsiodes:</h2><br/>
                 <div className="divEpi">
-                    <p className="listEpisodes" >{episode.name}</p><br/>
-                    
+                {episode?.map(e => ( 
+                    <p key={e.id} className="listEpisodes" >{e.name}</p>
+                ))}
                 </div>
             </div>
             <button onClick={handleClick}>
