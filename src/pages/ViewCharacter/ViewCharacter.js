@@ -8,6 +8,8 @@ export default function ViewCharacter(props) {
 
     const [character, setCharacter] = useState([]);
 
+
+    console.log(character);
     useEffect(() => {
         const loadCharacterList = async () => {
             const response = await Api.buildApiGetRequest(Api.readByIdUrl(id), true);
@@ -27,37 +29,15 @@ export default function ViewCharacter(props) {
     };
 
 
-    
-    //================================================
-    
-    // Nome dos episodios
-    const [episode, setEpisode] = useState([]);
-    const idEpisode = character.episode;
-  
-    const list = []
-    
-    for (var prop in idEpisode)
-        list.push(idEpisode[prop].substr(40));
+    //================================================================
 
-        const urlEpi = "https://rickandmortyapi.com/api/episode/" + list;
-
-    useEffect(() => {
-
-        fetch(urlEpi)
-            .then((resp) => resp.json())
-            .then(function(data) {
-                console.log(data);
-                setEpisode(data);
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-
-        
-    }, []);
     
 
-    //===============================================
+   
+    
+    //================================================================
+    
+    
 
 
 
@@ -66,9 +46,9 @@ export default function ViewCharacter(props) {
             <div className="view">
                 <h2>{character.name}</h2>
                 <img src={character.image} alt="personagem"/>
-                <h2>Epsiodes:</h2><br/>
+                <h2>Species:</h2><br/>
                 <div className="divEpi">
-                    <p className="listEpisodes" >{episode.name}</p><br/>
+                    <p className="listEpisodes" >{character.species}</p><br/>
                     
                 </div>
             </div>
